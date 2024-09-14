@@ -131,7 +131,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-
+        setNewMessage("");
         const { data } = await axios.post(
           "/api/message",
           {
@@ -143,7 +143,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
         socket.emit("new message", data);
         setMessages([...messages, data]);
-        setNewMessage("");
       } catch (error) {
         toast({
           title: "Error Occured!",
