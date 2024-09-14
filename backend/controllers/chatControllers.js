@@ -25,7 +25,7 @@ const accessChat = asyncHandler(async (req, res) => {
     select: "name pic email",
   });
 
-  if (!isChat.length > 0) {
+  if (isChat.length > 0) {
     res.send(isChat[0]);
   } else {
     var chatData = {
@@ -70,8 +70,17 @@ const fetchChats = asyncHandler(async (req, res) => {
 
 const createGroupChat = asyncHandler(async (req, res) => {
   if (!req.body.users || !req.body.name) {
-    return res.status(400).send({ message: "Please fill all the fields" });
+    return res.status(400).send({ message: "Please Fill all the feilds" });
   }
+
+  var users = JSON.parse(req.body.users);
+
+  if (users.length < 2) {
+    return res
+      .status(400)
+      .send("More than 2 users are required to form a group chat");
+  }
+
   users.push(req.user);
 
   try {
@@ -81,6 +90,7 @@ const createGroupChat = asyncHandler(async (req, res) => {
       isGroupChat: true,
       groupAdmin: req.user,
     });
+
     const fullGroupChat = await Chat.findOne({ _id: groupChat._id })
       .populate("users", "-password")
       .populate("groupAdmin", "-password");
