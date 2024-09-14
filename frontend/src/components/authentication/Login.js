@@ -11,15 +11,16 @@ import {
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { ChatState } from "../../Context/ChatProvider";
 
 const Login = () => {
   const toast = useToast();
-  const [show, setShow] = useState();
+  const [show, setShow] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState();
   const history = useHistory();
-
+  const { setUser } = ChatState();
   const handleClick = () => setShow(!show);
   const submitHandler = async () => {
     setLoading(true);
@@ -55,6 +56,7 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
+      setUser(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       history.push("/chats");
