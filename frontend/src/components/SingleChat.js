@@ -127,7 +127,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       try {
         const config = {
           headers: {
-            "Content-Type": "application/json",
+            "Content-type": "application/json",
             Authorization: `Bearer ${user.token}`,
           },
         };
@@ -141,9 +141,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           config
         );
 
-        setNewMessage("");
         socket.emit("new message", data);
         setMessages([...messages, data]);
+        setNewMessage("");
       } catch (error) {
         toast({
           title: "Error Occured!",
