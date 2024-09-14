@@ -40,7 +40,7 @@ const server = app.listen(
 const io = require("socket.io")(server, {
   pintTimeout: 60000,
   cors: {
-    origin: "https://vibesync-you9.onrender.com/",
+    origin: "http:localhost:3000",
   },
 });
 
