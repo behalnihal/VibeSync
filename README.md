@@ -11,4 +11,5 @@ A Full Stack real-time chatting app.
 ## Demo
 Link: https://vibesync-you9.onrender.com/
 
-![image](https://github.com/user-attachments/assets/ebb58138-7659-4840-9f4b-12788298d23a)
+<img width="1606" height="869" alt="vibesync-you9 onrender com_chats (2)" src="https://github.com/user-attachments/assets/e1f9b2cd-8eed-46d1-b56c-fae4615b9da7" />
+
