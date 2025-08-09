@@ -72,12 +72,16 @@ const Login = () => {
     }
   };
   return (
-    <VStack spacing="5px" color="black">
+    <VStack spacing="5px" color="gray.100">
       <FormControl id="email" isRequired>
         <FormLabel>Email</FormLabel>
         <Input
           value={email}
           type="email"
+          variant="filled"
+          bg="gray.700"
+          color="gray.100"
+          _placeholder={{ color: "gray.400" }}
           placeholder="Enter Your Email"
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -89,11 +93,22 @@ const Login = () => {
           <Input
             value={password}
             type={show ? "text" : "password"}
+            variant="filled"
+            bg="gray.700"
+            color="gray.100"
+            _placeholder={{ color: "gray.400" }}
             placeholder="Enter Your Password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <InputRightElement>
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
+            <Button
+              h="1.75rem"
+              size="sm"
+              variant="ghost"
+              color="gray.200"
+              _hover={{ bg: "gray.700" }}
+              onClick={handleClick}
+            >
               {show ? "Hide" : "Show"}
             </Button>
           </InputRightElement>
@@ -101,18 +116,25 @@ const Login = () => {
       </FormControl>
 
       <Button
-        colorScheme="blue"
         width="100%"
-        style={{ marginTop: 15 }}
+        mt={4}
+        bgGradient="linear(to-r, purple.500, blue.500)"
+        color="white"
+        _hover={{ bgGradient: "linear(to-r, purple.600, blue.600)" }}
+        _active={{ transform: "scale(0.98)" }}
+        borderRadius="md"
         onClick={submitHandler}
         isLoading={loading}
       >
         Login
       </Button>
       <Button
-        variant="solid"
-        colorScheme="red"
+        variant="outline"
+        borderColor="teal.400"
+        color="teal.300"
+        _hover={{ bg: "teal.500", color: "white", borderColor: "teal.500" }}
         width="100%"
+        mt={3}
         onClick={() => {
           setEmail("guest@example.com");
           setPassword("123456");

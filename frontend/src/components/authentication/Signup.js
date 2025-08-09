@@ -134,10 +134,14 @@ const Signup = () => {
   };
 
   return (
-    <VStack spacing="5px" color="black">
+    <VStack spacing="5px" color="gray.100">
       <FormControl id="first-name" isRequired>
         <FormLabel>Name</FormLabel>
         <Input
+          variant="filled"
+          bg="gray.700"
+          color="gray.100"
+          _placeholder={{ color: "gray.400" }}
           placeholder="Enter Your Name"
           onChange={(e) => setName(e.target.value)}
         />
@@ -145,6 +149,10 @@ const Signup = () => {
       <FormControl id="email" isRequired>
         <FormLabel>Email</FormLabel>
         <Input
+          variant="filled"
+          bg="gray.700"
+          color="gray.100"
+          _placeholder={{ color: "gray.400" }}
           placeholder="Enter Your Email"
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -154,11 +162,22 @@ const Signup = () => {
         <InputGroup>
           <Input
             type={show ? "text" : "password"}
+            variant="filled"
+            bg="gray.700"
+            color="gray.100"
+            _placeholder={{ color: "gray.400" }}
             placeholder="Enter Your Password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <InputRightElement>
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
+            <Button
+              h="1.75rem"
+              size="sm"
+              variant="ghost"
+              color="gray.200"
+              _hover={{ bg: "gray.700" }}
+              onClick={handleClick}
+            >
               {show ? "Hide" : "Show"}
             </Button>
           </InputRightElement>
@@ -170,11 +189,22 @@ const Signup = () => {
         <InputGroup>
           <Input
             type={showConfirm ? "text" : "password"}
+            variant="filled"
+            bg="gray.700"
+            color="gray.100"
+            _placeholder={{ color: "gray.400" }}
             placeholder="Enter Your Password"
             onChange={(e) => setConfirmpassword(e.target.value)}
           />
           <InputRightElement>
-            <Button h="1.75rem" size="sm" onClick={confirmHandleClick}>
+            <Button
+              h="1.75rem"
+              size="sm"
+              variant="ghost"
+              color="gray.200"
+              _hover={{ bg: "gray.700" }}
+              onClick={confirmHandleClick}
+            >
               {showConfirm ? "Hide" : "Show"}
             </Button>
           </InputRightElement>
@@ -184,6 +214,13 @@ const Signup = () => {
       <FormControl id="pic">
         <FormLabel>Upload your picture</FormLabel>
         <Input
+          className="file-input"
+          variant="outline"
+          borderColor="gray.600"
+          color="gray.200"
+          _hover={{ borderColor: "gray.500" }}
+          _focus={{ borderColor: "gray.500" }}
+          _placeholder={{ color: "gray.400" }}
           type="file"
           p={1.5}
           accept="image/*"
@@ -191,9 +228,13 @@ const Signup = () => {
         />
       </FormControl>
       <Button
-        colorScheme="blue"
         width="100%"
-        style={{ marginTop: 15 }}
+        mt={4}
+        bgGradient="linear(to-r, purple.500, blue.500)"
+        color="white"
+        _hover={{ bgGradient: "linear(to-r, purple.600, blue.600)" }}
+        _active={{ transform: "scale(0.98)" }}
+        borderRadius="md"
         onClick={submitHandler}
         isLoading={loading}
       >

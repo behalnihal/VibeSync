@@ -8,9 +8,13 @@ const ChatPage = () => {
   const { user } = ChatState();
   const [fetchAgain, setFetchAgain] = useState(false);
   return (
-    <div style={{ width: "100%" }}>
+    <div
+      style={{ width: "100%" }}
+      className="bg-gradient-to-b from-gray-900 to-gray-800"
+    >
       {user && <SideDrawer />}
       <Box
+        bg="gray.900"
         display="flex"
         justifyContent="space-between"
         w="100%"

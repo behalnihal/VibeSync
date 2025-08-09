@@ -214,11 +214,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             flexDir="column"
             justifyContent="flex-end"
             p={3}
-            bg="#E8E8E8"
+            bg="rgba(2, 6, 23, 0.5)"
             w="100%"
             h="100%"
             borderRadius="lg"
             overflowY="hidden"
+            borderWidth="1px"
+            borderColor="whiteAlpha.300"
+            backdropFilter="saturate(160%) blur(12px)"
           >
             {loading ? (
               <Spinner
@@ -248,7 +251,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               )}
               <Input
                 variant="filled"
-                bg="#E0E0E0"
+                bg="rgba(31, 41, 55, 0.7)"
+                _placeholder={{ color: "gray.400" }}
+                color="gray.100"
                 placeholder="Enter a message.."
                 onChange={typingHandler}
                 value={newMessage}

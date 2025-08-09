@@ -4,18 +4,15 @@ import React from "react";
 const ChatLoading = () => {
   return (
     <Stack>
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
-      <Skeleton height="45px" />
+      {Array.from({ length: 12 }).map((_, i) => (
+        <Skeleton
+          key={i}
+          height="45px"
+          startColor="gray.700"
+          endColor="gray.600"
+          borderRadius="md"
+        />
+      ))}
     </Stack>
   );
 };

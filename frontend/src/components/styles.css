@@ -4,3 +4,23 @@
   overflow-y: scroll;
   scrollbar-width: none;
 }
+
+/* Style the native file input button for a consistent dark look */
+.file-input::file-selector-button {
+  margin-right: 12px;
+  padding: 2px 6px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  color: #fff;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.05s ease;
+}
+
+.file-input::file-selector-button:hover {
+  filter: brightness(1.05);
+}
+
+.file-input::file-selector-button:active {
+  transform: scale(0.98);
+}

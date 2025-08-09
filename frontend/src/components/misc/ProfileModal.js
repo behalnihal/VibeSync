@@ -19,7 +19,7 @@ const ProfileModal = ({ user, children }) => {
   return (
     <>
       {children ? (
-        <span onClick={onOpen}>{children}</span>
+        React.cloneElement(children, { onClick: onOpen })
       ) : (
         <IconButton
           display={{ base: "flex" }}
@@ -30,7 +30,7 @@ const ProfileModal = ({ user, children }) => {
 
       <Modal size="lg" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent height="410px">
+        <ModalContent height="410px" bg="gray.800" borderColor="gray.700">
           <ModalHeader
             fontSize="40px"
             fontFamily="Work Sans"

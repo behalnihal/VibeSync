@@ -209,7 +209,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
 
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="gray.800" borderColor="gray.700">
           <ModalHeader
             fontSize="35px"
             fontFamily="Work sans"
@@ -239,8 +239,9 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
                 onChange={(e) => setGroupChatName(e.target.value)}
               />
               <Button
-                variant="solid"
-                colorScheme="teal"
+                bg="teal.500"
+                color="white"
+                _hover={{ bg: "teal.600" }}
                 ml={1}
                 isLoading={renameloading}
                 onClick={handleRename}
@@ -251,6 +252,10 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
             <FormControl>
               <Input
                 placeholder="Add User to group"
+                variant="filled"
+                bg="gray.700"
+                color="gray.100"
+                _placeholder={{ color: "gray.400" }}
                 mb={1}
                 onChange={(e) => handleSearch(e.target.value)}
               />
@@ -269,7 +274,12 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button onClick={() => handleRemove(user)} colorScheme="red">
+            <Button
+              onClick={() => handleRemove(user)}
+              bg="red.500"
+              color="white"
+              _hover={{ bg: "red.600" }}
+            >
               Leave Group
             </Button>
           </ModalFooter>
