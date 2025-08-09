@@ -16,6 +16,11 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
+//
+app.get("/ping", (req, res) => {
+  res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
 // --------------Deployment-----------------------------
 const __dirname1 = path.resolve();
 if (process.env.NODE_ENV === "production") {
