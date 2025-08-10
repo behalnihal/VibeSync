@@ -13,8 +13,10 @@ const ChatProvider = ({ children }) => {
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     setUser(userInfo);
-    if (!userInfo) {
-      history.push("/");
+    // Only redirect unauthenticated users when they try to access protected routes
+    const isProtectedRoute = window.location.pathname.startsWith("/chats");
+    if (!userInfo && isProtectedRoute) {
+      history.replace("/auth");
     }
   }, [history]);
   return (
